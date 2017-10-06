@@ -1,0 +1,51 @@
+var x = document.getElementsByTagName('li');
+ var i;
+for ( i = 0; i < x.length; i++) {
+  //copy this line saka paste sa baba note palitan ang x[i] ng li
+  var span = document.createElement("span");
+  span.className = "close";
+  var node = document.createTextNode("\u00d7");
+  span.appendChild(node);
+  x[i].appendChild(span);
+}
+
+var close = document.getElementsByClassName("close");
+var i;
+//copy this line sa baba pinaka baba no changes
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var a = this.parentElement;
+    a.style.display = "none";
+  }
+}
+
+function task(){
+  var inputs = document.getElementById("does").value;
+  var list = document.createElement("li");
+    var date = document.getElementById("date").value;
+  var ilista = document.createTextNode(inputs + " date "+date);
+
+  list.appendChild(ilista)
+  if (inputs === "") {
+    alert("KARGAAN MO Bes");
+  }
+  else{
+    document.getElementById("myul").appendChild(list);
+  }
+  document.getElementById("does").value = "";
+  document.getElementById("date").value = "";
+
+  var span = document.createElement("span");
+  var node = document.createTextNode("\u00d7");
+ span.className = "close";
+  span.appendChild(node);
+  list.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var a = this.parentElement;
+    a.style.display = "none";
+  }
+}
+
+}
